@@ -25,7 +25,7 @@ class Category
     private $parent;
 
     /**
-     * @ORM\OneToMany(targetEntity=Category::class, mappedBy="parent")
+     * @ORM\OneToMany(targetEntity=Category::class, mappedBy="parent", orphanRemoval=true)
      */
     private $children;
 
@@ -37,21 +37,22 @@ class Category
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $description;
-
-    /**
-     * @ORM\Column(type="smallint", options={"default":0})
-     */
-    private $number = 0;
+    private $description = "";
 
     /**
      * @ORM\Column(type="boolean", options={"default":true})
      */
-    private $isOnline = true;
+    private $isVisible = true;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="category", orphanRemoval=true)
+     */
+    private $articles;
 
     public function __construct()
     {
         $this->children = new ArrayCollection();
+        $this->articles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -125,26 +126,44 @@ class Category
         return $this;
     }
 
-    public function getNumber(): ?int
+    public function getIsVisible(): ?bool
     {
-        return $this->number;
+        return $this->isVisible;
     }
 
-    public function setNumber(int $number): self
+    public function setIsVisible(bool $isVisible): self
     {
-        $this->number = $number;
+        $this->isVisible = $isVisible;
 
         return $this;
     }
 
-    public function getIsOnline(): ?bool
+    /**
+     * @return Collection<int, Article>
+     */
+    public function getArticles(): Collection
     {
-        return $this->isOnline;
+        return $this->articles;
     }
 
-    public function setIsOnline(bool $isOnline): self
+    public function addArticle(Article $article): self
     {
-        $this->isOnline = $isOnline;
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getCategory() === $this) {
+                $article->setCategory(null);
+            }
+        }
 
         return $this;
     }
