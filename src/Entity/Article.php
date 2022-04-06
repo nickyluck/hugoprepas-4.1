@@ -43,6 +43,31 @@ class Article
      */
     private $hasLatex = false;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isProtected;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isPermanent;
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private $updatedAt;
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private $publishedAt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $author;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +129,66 @@ class Article
     public function setHasLatex(bool $hasLatex): self
     {
         $this->hasLatex = $hasLatex;
+
+        return $this;
+    }
+
+    public function getIsProtected(): ?bool
+    {
+        return $this->isProtected;
+    }
+
+    public function setIsProtected(bool $isProtected): self
+    {
+        $this->isProtected = $isProtected;
+
+        return $this;
+    }
+
+    public function getIsPermanent(): ?bool
+    {
+        return $this->isPermanent;
+    }
+
+    public function setIsPermanent(bool $isPermanent): self
+    {
+        $this->isPermanent = $isPermanent;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getPublishedAt(): ?\DateTimeImmutable
+    {
+        return $this->publishedAt;
+    }
+
+    public function setPublishedAt(\DateTimeImmutable $publishedAt): self
+    {
+        $this->publishedAt = $publishedAt;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?string $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

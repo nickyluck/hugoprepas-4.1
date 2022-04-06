@@ -26,41 +26,41 @@ class CategoryFixtures extends Fixture
         $manager->persist($home);
         $this->addReference("home", $home);
 
-        $classes = new Category;
-        $classes->setTitle("Sites des classes")
+        $grades = new Category;
+        $grades->setTitle("Sites des classes")
             ->setDescription("Rubrique contenant tous les sites des classes préparatoires du lycée Victor Hugo.");
-        $manager->persist($classes);
-        $this->addReference("classes", $classes);
+        $manager->persist($grades);
+        $this->addReference("classes", $grades);
 
-        $divers = new Category;
-        $divers->setTitle("Divers")
+        $misc = new Category;
+        $misc->setTitle("Divers")
             ->setDescription("Rubrique contenant toutes les rubriques et articles qui ne sont ni dans la page d'accueil ni dans un site d'une classe.\nCette rubrique contient notamment la rubrique \"Documents Profs\" permettant aux professeurs d'échanger des documents.");
-        $manager->persist($divers);
-        $this->addReference("divers", $divers);
+        $manager->persist($misc);
+        $this->addReference("divers", $misc);
 
         $this->buildTree($manager, $home, 5, 3);
 
-        $liste_des_classes = ["MPSI", "MP2I", "PCSI 1", "PCSI 2", "BCPST 1", "MP", "MP*", "PC", "PC*", "PSI", "BCPST 2"];
-        $liste_des_matieres = ["Infos Générales", "Mathématiques", "Physique - Chimie", "S.I.I.", "Français - Philosophie", "Langues Vivantes", "Informatique", "TIPE", "S.V.T."];
-        foreach ($liste_des_classes as $class_name) {
-            $class = new Category;
-            $class->setTitle($class_name)
-                ->setDescription("Site de la classe de {$class_name}.")
-                ->setParent($classes);
-            $manager->persist($class);
-            $this->addReference($class_name, $class);
+        $grades_list = ["MPSI", "MP2I", "PCSI 1", "PCSI 2", "BCPST 1", "MP", "MP*", "PC", "PC*", "PSI", "BCPST 2"];
+        $disciplines_list = ["Infos Générales", "Mathématiques", "Physique - Chimie", "S.I.I.", "Français - Philosophie", "Langues Vivantes", "Informatique", "TIPE", "S.V.T."];
+        foreach ($grades_list as $grade_name) {
+            $grade = new Category;
+            $grade->setTitle($grade_name)
+                ->setDescription("Site de la classe de {$grade_name}.")
+                ->setParent($grades);
+            $manager->persist($grade);
+            $this->addReference($grade_name, $grade);
 
-            foreach ($liste_des_matieres as $matiere_name) {
-                $matiere = new Category;
-                $matiere->setTitle($matiere_name)
-                    ->setParent($class);
-                $manager->persist($matiere);
+            foreach ($disciplines_list as $discipline_name) {
+                $discipline = new Category;
+                $discipline->setTitle($discipline_name)
+                    ->setParent($grade);
+                $manager->persist($discipline);
 
-                $this->buildTree($manager, $matiere, 2, 5);
+                $this->buildTree($manager, $discipline, 2, 5);
             }
         }
 
-        $this->buildTree($manager, $divers, 3, 2);
+        $this->buildTree($manager, $misc, 3, 2);
 
         $manager->flush();
     }
@@ -77,7 +77,7 @@ class CategoryFixtures extends Fixture
                 $manager->persist($child);
                 $this->addReference("Category-" . $this->nb_categories, $child);
                 $this->nb_categories++;
-                $this->buildTree($manager, $child, $deep-1, $max_children);
+                $this->buildTree($manager, $child, $deep - 1, $max_children);
             }
         }
     }

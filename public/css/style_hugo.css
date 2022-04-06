@@ -1,0 +1,553 @@
+/* styles CSS pour la partie privé de Hugoprépas */
+
+/* couleurs :
+Marron beige : #8d442a;
+Marron foncé : #7a361e;
+Marron encore plus foncé : #8b2323;
+Rouge orangé : #d5582b;
+Orange nostalgique : #ffa000;
+Orange de fond de tableau : #ffe185;
+
+violet : #a83576;
+bleu-gris foncé : #48546c;
+bleu-gris moyen : #5d6e8c;
+bleu-gris clair : #6b7da1;
+bleu foncé : #0e2d6c;
+gris barre de menu : #b8bfcd;
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    font-size: 100%;
+    font-family: "Quattrocento Sans", sans-serif;
+    color:#0e2d6c;
+}
+
+body {
+    background:-webkit-linear-gradient(#eee,#c1dfff,#eee);/* ancienne version de webkit */
+    background:   -moz-linear-gradient(#eee,#c1dfff,#eee);/* ancienne version de mozilla */
+    background:    -ms-linear-gradient(#eee,#c1dfff,#eee);
+    background:     -o-linear-gradient(#eee,#c1dfff,#eee);
+    background:        linear-gradient(#eee,#c1dfff,#eee);
+    width:1000px;
+    height:800px;
+    margin:0px auto auto auto;
+    position:relative;
+    border : none;
+}
+
+h2,h3,h4 {
+    clear:both;
+}
+
+/*-- haut de page ----------*/
+header{
+    font-size:16px;
+    font-weight:bold;
+    height:25px;
+    padding:3px 5px;
+}
+header .version{
+    font-size:8px;
+    padding:0px 5px;
+}
+header .nom{
+    font-size:12px;
+    font-style:italic;
+    padding-left:50px;
+}
+/*----------*/
+
+h3{
+    font-size:16px;
+    font-style:italic;
+    margin:0px 10px;
+}
+
+li{
+    list-style:none;
+}
+
+a{
+    text-decoration:none;
+    color:#0e2d6c;
+    padding:0px 5px;
+    display:inline-block;
+}
+a::first-letter{
+    color:#a83576;
+}
+
+p{
+    text-align:justify;
+    font-size:12px;
+}
+p.alerte{
+    text-align:center;
+    clear:both;
+    font-weight:bold;
+    color:#a83576;
+}
+span.erreur{
+    font-weight:bold;
+    color:#a83576;
+}
+p.info{
+    text-align:center;
+    clear:both;
+    padding-left:10px;
+    color:#7a361e;
+}
+p.info a{
+    display:inline;
+    color:red;
+    text-decoration:underline;
+}
+
+.vide{
+    clear:both;
+    visibility:hidden;
+}
+
+.centre{
+    margin-top:10px;
+    text-align:center;
+}
+
+/*----------- barre de menus -----------------------*/
+nav > ul{
+    margin-bottom:10px;
+    border:1px solid #ccc;
+    background-color:#ddd;
+    background:-webkit-linear-gradient(top,#fff,#b8bfcd);/* ancienne version de webkit */
+    background:-webkit-linear-gradient(to bottom,#fff,#b8bfcd);
+    background:   -moz-linear-gradient(top,#fff,#b8bfcd);/* ancienne version de mozilla */
+    background:   -moz-linear-gradient(to bottom,#fff,#b8bfcd);
+    background:    -ms-linear-gradient(top,#fff,#b8bfcd);
+    background:    -ms-linear-gradient(to bottom,#fff,#b8bfcd);
+    background:     -o-linear-gradient(top,#fff,#b8bfcd);
+    background:     -o-linear-gradient(to bottom,#fff,#b8bfcd);
+    background:        linear-gradient(to bottom,#fff,#b8bfcd);
+}
+nav > ul a{
+    display:block;
+    line-height:18px;
+    height:16px;
+}
+nav > ul > li{
+    display:inline-block;
+    padding:3px 25px 3px 5px;
+    position:relative;
+    border-right:1px solid #ccc;
+}
+nav > ul > li:hover{
+    background-color:#b8bfcd;
+    color:white;
+    border-right:1px solid #ccc;
+}
+ul.menu2{
+    display:none;
+}
+ul.menu2 a{
+    font-size:11px;
+}
+nav > ul > li:hover ul.menu2{
+    display:block;
+    width:140px;
+    border:1px solid #ccc;
+    position:absolute;
+    margin-top:3px;
+    margin-left:-6px;
+    background-color:#b8bfcd;
+    z-index:1000;
+}
+nav > ul > li:hover ul.menu2 > li{
+    padding:1px 3px 2px 3px;
+}
+nav > ul > li:hover ul.menu2 > li:hover{
+    background-color:#ccc;
+    background-color:#ddd;
+    background:-webkit-linear-gradient(#fff,#b8bfcd);/* ancienne version de webkit */
+    background:   -moz-linear-gradient(#fff,#b8bfcd);/* ancienne version de mozilla */
+    background:    -ms-linear-gradient(#fff,#b8bfcd);
+    background:     -o-linear-gradient(#fff,#b8bfcd);
+    background:        linear-gradient(#fff,#b8bfcd);
+}
+
+/*.message_retour{
+    position:absolute;
+    right:5px;
+    top:5px;
+    border:1px solid #a83576;
+    border-radius:5px;
+    background-color:white;
+    padding:20px;
+    display:none;
+}*/
+
+
+#bandeau{
+    margin:0px 100px 5px 100px;
+}
+#bandeau p{
+    text-align:center;
+}
+
+/*------------------- central ------------------------------------*/
+#central, #central_forums{
+    margin:0px;
+    min-width:730px;
+    border-top:1px solid #a83576;
+    padding:10px;
+}
+
+/* menu des actions */
+
+h4{
+    text-align:center;
+    font-style:italic;
+    font-size:12px;
+    font-weight:normal;
+    border:1px solid #a83576;
+    padding:5px 0px;
+    margin:5px 30% 1px 30%;
+    border-radius:5px;
+}
+ul.menu_actions{
+    border:1px solid #ccc;
+    margin:5px 0px;
+    background-color:#ddd;
+    background:-webkit-linear-gradient(#fff,#b8bfcd);/* ancienne version de webkit */
+    background:   -moz-linear-gradient(#fff,#b8bfcd);/* ancienne version de mozilla */
+    background:    -ms-linear-gradient(#fff,#b8bfcd);
+    background:     -o-linear-gradient(#fff,#b8bfcd);
+    background:        linear-gradient(#fff,#b8bfcd);
+    font-size:11px;
+}
+ul.menu_actions li{
+    display:inline-block;
+    padding:3px 10px;
+    border-right:1px solid #ccc;
+}
+
+ul.menu_actions_bis{
+    margin:5px 0px;
+    font-size:11px;
+}
+ul.menu_actions_bis li{
+    display:table-cell;
+    padding:3px 10px;
+    border:1px solid #ccc;
+    background-color:#b8bfcd;
+    background:-webkit-linear-gradient(#fff,#b8bfcd);/* ancienne version de webkit */
+    background:   -moz-linear-gradient(#fff,#b8bfcd);/* ancienne version de mozilla */
+    background:    -ms-linear-gradient(#fff,#b8bfcd);
+    background:     -o-linear-gradient(#fff,#b8bfcd);
+    background:        linear-gradient(#fff,#b8bfcd);
+}
+ul.menu_actions li:hover,ul.menu_actions_bis li:hover{
+    background:none;
+    background-color:#b8bfcd;
+    color:white;
+}
+ul.menu_actions li:hover a,ul.menu_actions_bis li:hover a{
+    color:white;
+}
+
+ul.menu_mois{
+    display:table;
+    margin:0px auto;
+    font-size:10px;
+}
+ul.menu_mois li{
+    padding-right:10px;
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+}
+
+.choix_classe{
+    border-width:1px;
+    border-style:solid;
+    border-color:#ccc;
+    background-color:#b8bfcd;
+    background:-webkit-linear-gradient(#fff,#b8bfcd);/* ancienne version de webkit */
+    background:   -moz-linear-gradient(#fff,#b8bfcd);/* ancienne version de mozilla */
+    background:    -ms-linear-gradient(#fff,#b8bfcd);
+    background:     -o-linear-gradient(#fff,#b8bfcd);
+    background:        linear-gradient(#fff,#b8bfcd);
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:20px;
+    margin-right:180px;
+}
+.choix_classe li{
+    display:table-cell;
+    width:70px;
+    border-right:1px #ccc solid;
+    font-size:12px;
+    font-weight:bold;
+    text-align:center;
+    line-height:20px;
+}
+.choix_classe li::first-letter{
+    color:#a83576;
+}
+.choix_classe a{
+    display:block;
+    color:#0e2d6c;
+}
+.choix_classe a:hover{
+    color:white;
+    background-color:#b8bfcd;
+    border-color:#cd8162;
+}
+
+
+/*------- formulaires */
+form{
+    margin-bottom:10px;
+ }
+.cadre{
+    border-radius:5px;
+    border:1px solid #b03700;
+    padding:5px;
+    margin:5px;
+}
+legend{
+    font-size:13px;
+    font-weight:bold;
+}
+form p{
+    margin:3px;
+}
+form p label{
+    display:inline-block;
+    width:150px;
+}
+form p label span{
+    font-size:80%;
+}
+form table{
+    margin:10px auto;
+}
+
+/*----------------------------- formulaires ------------------*/
+.formulaire{
+    border-width:2px 2px 2px 10px;
+    border-style:solid;
+    border-color: #a83576;
+    margin:10px 5% 10px 5%;
+    padding:5px 10px 0px 10px;
+}
+.formulaire fieldset{
+    padding:5px 10px 5px 10px;
+}
+.formulaire legend{
+    margin-left:0px;
+    font-size:12px;
+    font-weight:bold;
+    font-family:verdana;
+}
+.formulaire table{
+    margin:5px 20px;
+}
+.formulaire table td{
+    padding:0px 5px;
+}
+.formulaire hr{
+    margin:10px;
+    clear:both;
+}
+.formulaire p{
+    clear:both;
+    text-align:left;
+}
+.formulaire p label{
+    float:left;
+    text-align:right;
+    margin-right:10px;
+    width:180px;
+    line-height:20px;
+}
+.formulaire .presentation p label{
+    width : 22em;
+}
+.valider{
+    clear:both;
+    display:block;
+    border:1px solid #ccc;
+    background-color:#b8bfcd;
+    background:-webkit-linear-gradient(#fff,#b8bfcd);/* ancienne version de webkit */
+    background:   -moz-linear-gradient(#fff,#b8bfcd);/* ancienne version de mozilla */
+    background:    -ms-linear-gradient(#fff,#b8bfcd);
+    background:     -o-linear-gradient(#fff,#b8bfcd);
+    background:        linear-gradient(#fff,#b8bfcd);
+    width:120px;
+    height:30px;
+    font-family:sans-serif;
+    font-size:12px;
+    position:relative;
+    left:50%;
+    margin:10px 0px 10px -60px;
+}
+.valider:hover{
+    color:white;
+    background:none;
+    background-color:#b8bfcd;
+}
+
+/*
+recap = tableau r�capitulatif des heures de chaque prof, tableau des �l�ves ou des colleurs lors de leur d�claration
+*/
+table{
+    margin:10px auto 10px auto;
+    border-collapse:collapse;
+    border:1px solid #a83576;
+    empty-cells:show;
+    color:#0e2d6c;
+    background-color:#aad3ff;
+}
+table tr.parite0{
+    background-color:#d9eed3;
+}
+table tr.parite1{
+    background-color:#aad3ff;
+}
+caption{
+    text-align:center;
+    margin:10px auto 0px auto;
+}
+thead{
+    font-weight:bold;
+    background-color:#2a4780;
+    color:white;
+}
+tbody td{
+    border:1px solid #a83576;
+}
+tbody td span{
+    font-size:10px;
+}
+table td{
+    padding:0px 2px;
+}
+
+table.fiche_eleve tr td:nth-child(4){
+    font-size:12px;
+}
+table.recap td.nom{
+    width:180px;
+}
+table td.coche{
+    padding:0px 2px 5px 2px;
+    vertical-align:middle;
+}
+table.ects_tous1 th, table.ects_tous2 th{
+    padding:0px 2px;
+}
+table.ects_tous1 th:nth-child(n+2), table.ects_tous1 td:nth-child(2n){
+    border-right:2px solid white;
+}
+table.ects_tous2 tr:first-child th:nth-child(n+2), table.ects_tous2 tr:nth-child(2) th:nth-child(6n+2), table.ects_tous2 td:nth-child(6n+2){
+    border-right:2px solid white;
+}
+
+/*--- classes pour contrôle d'affichage par Jquery ---*/
+.on{
+    display:block;
+}
+.off{
+    display:none;
+}
+
+/* spécifiques article */
+table.edtr{
+    display:inline-block;
+    vertical-align:middle;
+    border:none;
+    margin:0px;
+    background-color:transparent;
+}
+table.edtr td{
+    border:none;
+}
+.comm{
+    font-size:12px;
+}
+.comm div{
+    display:none;
+    border:1px solid #0e2d6c;
+    margin-left:10px;
+}
+.comm a{
+
+    padding:2px 5px 2px 0px;
+}
+.comm a.modif_comm, a.voir_comm{
+    cursor:pointer;
+    font-size:12px;
+}
+form.comm{
+    display:none;
+}
+
+/*--------------------------------------------- menu des rubriques --------------------------------*/
+#menu_rubrique{
+    width:240px;
+    margin:0px 5px;
+    padding:2px 0px;
+    position:absolute;
+    border:1px solid gray;
+    border-radius:5px;
+}
+#menu_rubrique ul{
+    margin-left:5px;
+    clear:both;
+}
+#menu_rubrique ul li{
+    margin-left:5px;
+    border-left:1px solid gray;
+    padding-left:2px;
+}
+ul.on {
+    display: block;
+}
+ul.off {
+    display: none;
+}
+#menu_rubrique a.on{
+    font-style:italic;
+    color:#a83576;
+}
+/*ul {*/
+    /*display: block;*/
+/*}*/
+/*ul.off {*/
+    /*display: none;*/
+/*}*/
+
+/* feuille de styles du module "site" */
+
+#central{
+    margin-left : 252px;
+}
+#central h3{
+    text-align:left;
+    margin-left:15px;
+}
+#central ul:not(.menu_actions){
+    margin-left:50px;
+}
+#central ul.listes li{
+    list-style:circle inside url('/prepaslvh/images/deplierhaut.gif');
+}
+
+.time {
+    margin-top: 500px;
+}
+

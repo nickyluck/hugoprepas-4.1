@@ -35,12 +35,12 @@ class Category
     private $title;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
      */
     private $description = "";
 
     /**
-     * @ORM\Column(type="boolean", options={"default":true})
+     * @ORM\Column(type="boolean")
      */
     private $isVisible = true;
 
@@ -48,6 +48,16 @@ class Category
      * @ORM\OneToMany(targetEntity=Article::class, mappedBy="category", orphanRemoval=true)
      */
     private $articles;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $place = 0;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isProtected = false;
 
     public function __construct()
     {
@@ -164,6 +174,30 @@ class Category
                 $article->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPlace(): ?int
+    {
+        return $this->place;
+    }
+
+    public function setPlace(?int $place): self
+    {
+        $this->place = $place;
+
+        return $this;
+    }
+
+    public function getIsProtected(): ?bool
+    {
+        return $this->isProtected;
+    }
+
+    public function setIsProtected(bool $isProtected): self
+    {
+        $this->isProtected = $isProtected;
 
         return $this;
     }

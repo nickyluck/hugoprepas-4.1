@@ -1,0 +1,7 @@
+{% extends '@public/layouts/layout.twig' %}
+
+{% block navigation %}
+    {{ navbarChemin.get | raw }}
+    {{ navbarRubriques.get | raw }}
+    {{ navbarArticles.get | raw }}
+{% endblock %}

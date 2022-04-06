@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link href="/css/hugoprepas.css" rel="stylesheet">
+{% endblock %}
+
+{% block header %}
+<h1>Hugoprépas
+	<span class='version'>4</span>
+</h1>
+{# {% if app.user %}
+<div class='connexion'>
+	<p>{{ app.user.fullname }}</p>
+	<p>
+		<a href='{{ path(' logout') }}'>Déconnexion</a>
+	</p>
+</div>
+{% endif %} #}
+{% endblock %}
+
+{% block navigation %}
+{% include "home/_navbar.html.twig" %}<br><br><br><br>
+{% include "home/_navbar_visits.html.twig" %}
+{% endblock %}
+
+{% block footer %}
+<p class='mentions'>
+	Lycée Victor Hugo | 1 rue Rembrandt 25000 Besançon | Tél : 03 81 41 98 88<br>
+	<a href='http://lyceehugobesancon.org/LVH/mentions-legales/'>
+		<u>Mentions légales</u>
+	</a>
+</p>
+{% endblock %}

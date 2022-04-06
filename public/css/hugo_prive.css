@@ -1,0 +1,14 @@
+.prive {
+	height: 100%;
+	font-family: "Quattrocento Sans","OpenSans",sans-serif;
+	color: #0e2d6c;
+	font-weight: normal;
+	height: 100%;
+	font-family: "Quattrocento Sans","OpenSans",sans-serif;
+	color: #0e2d6c;
+	font-weight: normal;
+	background-color: #5d6e8c;
+	background: -webkit-linear-gradient(left,#5d6e8c 50%,#a83576 65%,#5d6e8c 90%);
+	background: -ms-linear-gradient(left,#5d6e8c 50%,#a83576 65%,#5d6e8c 90%);
+	background: linear-gradient(to right,rgb(85, 166, 212) 50%,#a83576 65%,#5d6e8c 90%);
+}

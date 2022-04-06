@@ -1,19 +1,60 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+<html lang="fr">
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="CPGE, Classes prépas, Lycée Victor Hugo, Besançon">
+	<meta name='keywords' content='cpge, classes, prepas, besançon, lvh, hugo' />
+
+	<title>{% block title "Hugoprépas : site des classes préparatoires du lycée Victor Hugo" %}</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
+	{#
+	<link rel='icon' type='image/png' href='/img/favicon.png' /> #}
+	{% block stylesheets %}{# Run `composer require symfony/webpack-encore-bundle`and uncomment the following Encore
+	helpers to start using Symfony UX #}
+	{#{{ encore_entry_link_tags('app') }}#}
+	{% endblock %}
+
+	{% block javascripts %}
+	{#{{ encore_entry_script_tags('app') }}#}
+	{% endblock %}
+</head>
+
+<body>
+	<header>
+		{% block header %}{% endblock %}
+
+		{% block navigation %}{% endblock %}
+
+		{% block messages %}
+		{% if app.flashes %}
+		<div class="messages">
+			{% for label, messages in app.flashes(['success', 'error', 'info']) %}
+			{% if label == 'error' %}
+			{% set label = 'danger' %}
+			{% elseif label == 'info' %}
+			{% set label = 'secondary' %}
+			{% endif %}
+
+			{% for message in messages %}
+			<div class="alert alert-{{ label }}">
+				{{ message }}
+			</div>
+			{% endfor %}
+			{% endfor %}
+		</div>
+		{% endif %}
+		{% endblock %}
+	</header>
+
+	<section>
+		{% block body %}{% endblock %}
+	</section>
+
+	<footer>
+		{% block footer %}{% endblock %}
+	</footer>
+</body>
+
 </html>

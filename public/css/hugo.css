@@ -1,0 +1,30 @@
+/*---------- Polices ----------*/
+@font-face {
+    font-family: "OpenSans";
+    src: url('polices/OpenSans/OpenSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: "OpenSansBold";
+    src: url('polices/OpenSans/OpenSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Quattrocento Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('QuattrocentoSans'), url('polices/Quattrocento/quattrocento-sans.woff') format('woff'),
+        url('polices/Quattrocento/QuattrocentoSans-Regular.ttf') format('truetype'),
+        url('http://themes.googleusercontent.com/static/fonts/quattrocentosans/v5/efd6FGWWGX5Z3ztwLBrG9b2aU247V0zTzydO4RoO9Ok.woff')
+        format('woff');
+}
+@font-face {
+    font-family: 'Quattrocento Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('QuattrocentoSans Bold'), local('QuattrocentoSans-Bold'),
+        url('polices/Quattrocento/quattrocento-sans-bold.woff') format('woff'),
+        url('polices/Quattrocento/QuattrocentoSans-Bold.ttf') format('truetype'),
+        url('http://themes.googleusercontent.com/static/fonts/quattrocentosans/v5/tXSgPxDl7Lk8Zr_5qX8FIQfd-b-I5PxxcmB4_-MNcqw.woff')
+        format('woff');
+}

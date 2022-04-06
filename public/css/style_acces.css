@@ -1,0 +1,111 @@
+body {
+    background: -webkit-linear-gradient(#eee, #c1dfff, #eee); /* ancienne version de webkit */
+    background: -moz-linear-gradient(#eee, #c1dfff, #eee); /* ancienne version de mozilla */
+    background: -ms-linear-gradient(#eee, #c1dfff, #eee);
+    background: -o-linear-gradient(#eee, #c1dfff, #eee);
+    background: linear-gradient(#eee, #c1dfff, #eee);
+    height: 800px;
+}
+
+.version {
+    font-size: 10px;
+}
+
+h2, h3, h4 {
+    font-family: sans-serif;
+    clear: both;
+    color: #a83576;
+}
+
+h2 {
+    margin-left: 2em;
+    padding-left: 1em;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 2em;
+    width: 20em;
+}
+
+h3 {
+    text-align: center;
+    padding-top: 1em;
+    font-size: 16px;
+    font-style: italic;
+    margin: 0px 0px 10px 10px;
+}
+
+a {
+    padding: 0px 5px;
+    display: inline-block;
+}
+
+a::first-letter {
+    color: #a83576;
+}
+
+p {
+    text-align: justify;
+    font-size: 12px;
+}
+
+/*------------------- central ------------------------------------*/
+.central {
+    margin: 0px 200px 0px 200px;
+    min-width: 600px;
+    border: 1px solid #ffa000;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding: 10px;
+}
+
+/*------- formulaires */
+.cadre {
+    border-radius: 5px;
+    border: 1px solid #a83576;;
+    padding: 5px;
+    margin: 5px;
+}
+
+/*----------------------------- formulaires ------------------*/
+.formulaire {
+    border: 2px solid #a83576;
+    border-left-width: 10px;
+    margin: 10px 5% 10px 5%;
+    padding: 5px 10px 0px 10px;
+}
+
+.formulaire p {
+    clear: both;
+    text-align: left;
+}
+
+.formulaire p label {
+    float: left;
+    text-align: right;
+    margin-right: 10px;
+    width: 100px;
+}
+
+.formulaire select {
+    font-size: 10px;
+}
+
+.valider {
+    clear: both;
+    display: block;
+    border: 1px solid #ccc;
+    background: #b8bfcd linear-gradient(to bottom, #fff, #b8bfcd);
+    width: 120px;
+    height: 30px;
+    font-family: sans-serif;
+    font-size: 12px;
+    position: relative;
+    left: 50%;
+    margin: 10px 0px 10px -60px;
+}
+
+.valider:hover {
+    color: white;
+    background: #b8bfcd none;
+}

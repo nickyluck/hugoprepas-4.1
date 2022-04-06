@@ -1,0 +1,14 @@
+table.visites{
+    font-size:12px;
+}
+table.visites td{
+    padding:1px 5px;
+}
+table.visites tr.zero{
+    color:#a31a1a;
+    font-weight:bold;
+    background-color:#c1dfff;
+}
+table.visites tr.partiel{
+    color:#a31a1a;
+}
