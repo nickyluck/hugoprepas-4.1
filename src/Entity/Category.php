@@ -13,6 +13,13 @@ use Doctrine\ORM\Mapping as ORM;
 class Category
 {
     /**
+     * Constantes fixant les identifiants des catégories racines.
+     */
+    const HOME_ID = 1;      // Catégorie racine de la page d'accueil.
+    const GRADES_ID = 2;    // Catégorie racine des sites des classes.
+    const MISC_ID = 3;      // Catégorie racine des catégories diverses.
+
+    /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
