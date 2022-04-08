@@ -66,10 +66,22 @@ class Category
      */
     private $isProtected = false;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="offsprings")
+     */
+    private $ancestors;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Category::class, mappedBy="ancestors")
+     */
+    private $offsprings;
+
     public function __construct()
     {
         $this->children = new ArrayCollection();
         $this->articles = new ArrayCollection();
+        $this->ancestors = new ArrayCollection();
+        $this->offsprings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -205,6 +217,57 @@ class Category
     public function setIsProtected(bool $isProtected): self
     {
         $this->isProtected = $isProtected;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getAncestors(): Collection
+    {
+        return $this->ancestors;
+    }
+
+    public function addAncestor(self $ancestor): self
+    {
+        if (!$this->ancestors->contains($ancestor)) {
+            $this->ancestors[] = $ancestor;
+        }
+
+        return $this;
+    }
+
+    public function removeAncestor(self $ancestor): self
+    {
+        $this->ancestors->removeElement($ancestor);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getOffsprings(): Collection
+    {
+        return $this->offsprings;
+    }
+
+    public function addOffspring(self $offspring): self
+    {
+        if (!$this->offsprings->contains($offspring)) {
+            $this->offsprings[] = $offspring;
+            $offspring->addAncestor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOffspring(self $offspring): self
+    {
+        if ($this->offsprings->removeElement($offspring)) {
+            $offspring->removeAncestor($this);
+        }
 
         return $this;
     }
