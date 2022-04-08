@@ -38,7 +38,7 @@ class CategoryFixtures extends Fixture
         $manager->persist($misc);
         $this->addReference("divers", $misc);
 
-        $this->buildTree($manager, $home, 5, 3);
+        $this->buildTree($manager, $home, 2, 3);
 
         $grades_list = ["MPSI", "MP2I", "PCSI 1", "PCSI 2", "BCPST 1", "MP", "MP*", "PC", "PC*", "PSI", "BCPST 2"];
         $disciplines_list = ["Infos Générales", "Mathématiques", "Physique - Chimie", "S.I.I.", "Français - Philosophie", "Langues Vivantes", "Informatique", "TIPE", "S.V.T."];
@@ -56,11 +56,11 @@ class CategoryFixtures extends Fixture
                     ->setParent($grade);
                 $manager->persist($discipline);
 
-                $this->buildTree($manager, $discipline, 2, 5);
+                $this->buildTree($manager, $discipline, 2, 3);
             }
         }
 
-        $this->buildTree($manager, $misc, 3, 2);
+        $this->buildTree($manager, $misc, 2, 2);
 
         $manager->flush();
     }

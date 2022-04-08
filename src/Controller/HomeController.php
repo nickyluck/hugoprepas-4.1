@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,8 +12,21 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(): Response
+    public function index(CategoryRepository $repo): Response
     {
+        $category = $repo->find(85);
+        $ancestors = $category->getAncestors();
+        $offsprings = $category->getOffsprings();
+        dump($category);
+        echo "Ancestors";
+        foreach ($ancestors as $ancestor) {
+            dump($ancestor);
+        }
+        echo "Offsprings";
+        foreach ($offsprings as $offspring) {
+            dump($offspring);
+        }
+        die();
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'selected_category_id' => 75

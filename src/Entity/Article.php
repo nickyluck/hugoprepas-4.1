@@ -46,20 +46,20 @@ class Article
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isProtected;
+    private $isProtected = false;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isPermanent;
+    private $isPermanent= false;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime_immutable", nullable=true)
      */
     private $updatedAt;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime_immutable", nullable=true)
      */
     private $publishedAt;
 

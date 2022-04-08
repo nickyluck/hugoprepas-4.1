@@ -68,6 +68,8 @@ class Category
 
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="offsprings")
+     * @ORM\JoinTable(name="genealogy", joinColumns={@ORM\JoinColumn(name="offspring_id", referencedColumnName="id")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="ancestor_id", referencedColumnName="id")})
      */
     private $ancestors;
 
@@ -97,6 +99,10 @@ class Category
     public function setParent(?self $parent): self
     {
         $this->parent = $parent;
+        while ($parent !== null) {
+            $parent->addOffspring($this);
+            $parent = $parent->getParent();
+        }
 
         return $this;
     }
