@@ -4,11 +4,12 @@ namespace App\DataFixtures;
 
 use App\Entity\Article;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
-class ArticleFixtures extends Fixture implements DependentFixtureInterface
+class ArticleFixtures extends Fixture implements DependentFixtureInterface, FixtureGroupInterface
 {
     private $faker;
     private $nb_articles;
@@ -39,6 +40,13 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             CategoryFixtures::class
+        ];
+    }
+
+    public static function getGroups(): array
+    {
+        return [
+            'FakeFixtures'
         ];
     }
 }

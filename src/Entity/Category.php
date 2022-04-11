@@ -32,7 +32,8 @@ class Category
     private $parent;
 
     /**
-     * @ORM\OneToMany(targetEntity=Category::class, mappedBy="parent", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Category::class, mappedBy="parent", cascade={"remove"})
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      */
     private $children;
 
@@ -99,9 +100,14 @@ class Category
     public function setParent(?self $parent): self
     {
         $this->parent = $parent;
+
         while ($parent !== null) {
             $parent->addOffspring($this);
             $parent = $parent->getParent();
+        }
+
+        foreach ($this->children as $child) {
+            $child->setParent($this);
         }
 
         return $this;

@@ -24,7 +24,7 @@
 
 {% block navigation %}
 {% include "home/_navbar.html.twig" %}
-{{ sidebarHome.render(selected_category_id ?? null) | raw }}
+{{ sidebarHome.render(category.id ?? null) | raw }}
 {{ sidebarGrades.render | raw }}
 {% endblock %}
 

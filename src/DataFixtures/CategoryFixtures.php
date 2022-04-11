@@ -4,10 +4,11 @@ namespace App\DataFixtures;
 
 use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
-class CategoryFixtures extends Fixture
+class CategoryFixtures extends Fixture implements FixtureGroupInterface
 {
     private $faker;
     private $nb_categories;
@@ -80,5 +81,12 @@ class CategoryFixtures extends Fixture
                 $this->buildTree($manager, $child, $deep - 1, $max_children);
             }
         }
+    }
+
+    public static function getGroups(): array
+    {
+        return [
+            'FakeFixtures'
+        ];
     }
 }

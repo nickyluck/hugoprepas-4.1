@@ -156,11 +156,6 @@ hr {
 
 /*---------- Sidebars ----------*/
 
-.navbar-left,
-.navbar-right {
-    width: 250px;
-}
-
 .navbar-left {
     width: 250px;
     float: left;
@@ -248,10 +243,11 @@ section img,
     margin: 0px auto 10px auto;
 }
 
-/* article {
-    margin: 0px auto 0px auto;
-    width: 100%;
+article {
+    margin: 0px 180px 0px 260px;
 }
+
+/*
 
 article li {
     width: 100%;

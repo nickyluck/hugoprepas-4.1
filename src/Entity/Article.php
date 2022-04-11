@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -51,7 +53,7 @@ class Article
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isPermanent= false;
+    private $isPermanent = false;
 
     /**
      * @ORM\Column(type="datetime_immutable", nullable=true)
@@ -67,6 +69,7 @@ class Article
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $author;
+
 
     public function getId(): ?int
     {
